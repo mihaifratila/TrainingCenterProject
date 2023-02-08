@@ -11,7 +11,7 @@ import java.util.Map;
 public class CourseManager {
 
     private final Student student;
-    private final static Map<String, List<Course>> coursePaths = new HashMap<String, List<Course>>();
+    private final static Map<String, List<Course>> coursePaths = new HashMap<>();
     public CourseManager(Student student) {
         coursePaths.put("Java Developer",
                         Arrays.asList(

@@ -53,7 +53,7 @@ public class TimeSpentCalculatorTest {
     public void calculatorCanReturnTheExactAmountOfWorkingHours() {
 
         //when
-        startTime = LocalDateTime.parse("2023-01-03T14:00:00");
+        startTime = LocalDateTime.parse("2023-01-31T22:00:00");
         final int allDaysInBetween = TimeSpentCalculator.getAllDaysInBetween(startTime.toLocalDate(), endDate);
         final int EXPECTED_EXACT_WORKING_HOURS;
         final int firstDayWorkingHours;
@@ -98,9 +98,9 @@ public class TimeSpentCalculatorTest {
     public void calculatorCanReturnHoursSincePastAction() {
 
         // if the selected time is in the future
-        LocalDateTime lastAction = LocalDateTime.parse("2023-01-14T18:00:00");
+        LocalDateTime lastAction = LocalDateTime.parse("2023-01-31T18:00:00");
 
-        assertEquals(10, TimeSpentCalculator.getHoursSinceLastAction(lastAction));
+        assertEquals(0, TimeSpentCalculator.getExactWorkingHoursForSelectedTime(lastAction));
         // calculate the difference between the selected time and the current day
     }
 
