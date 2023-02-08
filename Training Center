@@ -1,0 +1,41 @@
+Training Center
+ - Scope of the Application:
+	An Application that tracks the progress of the Students regarding specific Courses. The Training program consists in a set of courses that the student must take sequentially. Each course has a certain duration
+
+- Features Required:
+	1. Determine (considering the current date) when will the student complete the course.
+	2. Calculate how many days and hours the students still has before the end of the program.
+	3. If the program is complete, how many days and hours have passed since the student completed the program.
+	4. The calculation results as well as student info and the studied program should be printed in the console
+	5. Unit tests to cover the most important methods
+
+- Requirements:
+	1. Training is considered to be 5 working days a week, with an 8-hour school day, from 10 to 18.
+	2. The date of the launch report is given by user input.
+	3. The Output report can be displayed in two ways, a short report and a full report.
+
+ - Application Flow:
+ 	User Input - Data Parser - Data Processing - Console Output
+
+ - Classes needed:
+ 	1. An User Input Class - Class that takes the user input and parses it in the correct formats. Ex: The user is asked to enter information about student name, program that the student is taking and the starting date and time of the program
+
+ 	2. A base course class/enum - Class/enum that holds the data related to the specific courses present in a program. Ex: Course name and course duration in hours
+
+ 	3. A Program Class - Class that holds data about the Programs that the Students can take. Ex: Program name, courses present in the program, the total amount of hours of the program
+
+ 	4. A Student Class - Class the holds data about the Student. Ex: Student name, what program is the student studying, Date and Time of starting the program
+
+ 	5. A Time Calculator Class - Class that takes the time data from the student and calculates the amount of time left of the program or how much time has passed since the program was completed
+
+ 	6. A Training Center Class - Class that keeps evidence of the progress of the students that are currently enrolled
+
+ 	7. Data Output Class - Class that outputs is the console the data about the students. Two options available: Short Report or Full Report
+
+
+User Input Class functionality:
+Get the Student name
+Get the Starting year, starting month, starting day and hour
+Parse the data into a single string
+
+
