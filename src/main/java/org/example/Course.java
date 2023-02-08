@@ -22,23 +22,18 @@ public enum Course {
     public String getCourseName() {
         return courseName;
     }
-
     public int getCourseDuration() {
         return courseDuration;
     }
-
     public boolean getIsActive() {
         return isCourseActive;
     }
-
     public void setIsActive(boolean isActive) {
         this.isCourseActive = isActive;
     }
-
     public boolean isCourseCompleted() {
         return isCourseCompleted;
     }
-
     public void setCourseCompleted(boolean courseCompleted) {
         isCourseCompleted = courseCompleted;
     }

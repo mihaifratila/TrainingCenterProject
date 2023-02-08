@@ -20,11 +20,11 @@ public class TimeSpentCalculator {
             return (int) (ChronoUnit.DAYS.between(fromDay, toDay));
     }
 
-    public static int getAllHoursBetweenPeriod(final LocalDateTime startingTime, final LocalDateTime endingTime) {
+    public static int getAllHoursBetweenPeriod(final LocalDateTime startingTime,
+                                               final LocalDateTime endingTime) {
         if (startingTime == null || endingTime == null) {
             throw new IllegalStateException();
         }
-
         //Convert LocalDateTime to LocalDate
         LocalDate fromDay = startingTime.toLocalDate();
         LocalDate toDay = endingTime.toLocalDate();
@@ -57,19 +57,20 @@ public class TimeSpentCalculator {
         return (int) allWorkingHours;
     }
 
-    public static int getExactWorkingHoursBetweenPeriod(final LocalDateTime startingTime, final LocalDateTime endingTime) {
+    public static int getExactWorkingHoursBetweenPeriod(final LocalDateTime startingTime,
+                                                        final LocalDateTime endingTime) {
         int workedHours = getWorkingHoursBetweenPeriod(startingTime, endingTime);
-        LocalDate fromDay = startingTime.toLocalDate();
-        int startingWorkingHour = startingTime.getHour();
-        int differenceBetweenStartingHourAndActualHour = getDifferenceBetweenStartingHourAndActualHour(startingTime, endingTime);
+        int differenceBetweenStartingHourAndActualHour = getDifferenceBetweenStartingHourAndActualHour(startingTime,
+                                                                                                       endingTime);
         int currentDayWorkedHours = getCurrentDayWorkedHours(endingTime);
 
         return workedHours - differenceBetweenStartingHourAndActualHour + currentDayWorkedHours;
     }
 
-    public static int getDifferenceBetweenStartingHourAndActualHour(LocalDateTime startingTime, LocalDateTime endingTime) {
+    public static int getDifferenceBetweenStartingHourAndActualHour(LocalDateTime startingTime,
+                                                                    LocalDateTime endingTime) {
         int differenceBetweenStartingHourAndActualHour = 0;
-//if its a working day
+//if it's a working day
         if (isWorkingDay(startingTime)) {
             // if inside working hours
             if (isWorkingHour(startingTime) && startingTime.getDayOfYear() != endingTime.getDayOfYear()) {
@@ -92,7 +93,7 @@ public class TimeSpentCalculator {
         return currentDayWorkedHours;
     }
 
- public static int getHoursSinceLastAction(LocalDateTime selectedTime) {
+ public static int getExactWorkingHoursForSelectedTime(LocalDateTime selectedTime) {
         LocalDateTime currentTime = LocalDateTime.now();
         return Math.abs(getExactWorkingHoursBetweenPeriod(
                                                   currentTime, selectedTime));
