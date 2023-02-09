@@ -1,5 +1,6 @@
 package org.example;
 
+
 import java.util.Scanner;
 
 public class UserInputHandler {
@@ -13,8 +14,17 @@ public class UserInputHandler {
     }
 
     public void setStudentName() {
-        System.out.print("Please enter the student name: ");
-        studentName = userInput.next("^[A-Za-z]+$");
+
+            while(true) {
+                System.out.print("Please enter the student's name: ");
+                studentName = userInput.nextLine();
+                if(studentName.matches("[a-zA-z\\s]+")) {
+                    break;
+                } else {
+                    System.out.println("Invalid input. Please enter a valid name.");
+                }
+            }
+            userInput.close();
     }
 
     public String getStudentName() { return studentName; }
